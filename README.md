@@ -1,6 +1,8 @@
 # Projects
 Repository of past academic and recreational projects
 
+Source Code folder contains copies of the files that were created by myself or team members (if applicable) of the different projects within this repository. Excludes Visual Studio project or NuGet package files.
+
 Console Chess - A simple console application that runs a game of chess. Intended for two users at the same keybaord. 
 Takes in Chess Notation as input and displays a representation of the state of the board on the console.
 Implemented in C#

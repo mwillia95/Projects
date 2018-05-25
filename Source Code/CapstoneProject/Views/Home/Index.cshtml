@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width" />
+    <title ng-bind="title"></title>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato" rel="stylesheet">
+    @Styles.Render("~/content/css")
+    @Scripts.Render("~/bundles/all")
+    <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjPZkkaFZNUcyiFq6Ckyrcb9LVplllhyE&libraries=places"></script>
+</head>
+<body ng-controller="initialController as self" class="body-content">
+    <!--Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" id="appName" href="/"><span>E</span>mergency <span>N</span>otification <span>S</span>ystem</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div ng-show="$root.isAuthorized">
+                    <ul class="navbar-nav" id="itemsLeftNav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/home"><span class="navLinks">Home</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="navLinks">Contacts</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="/createContact">Create Contact</a></li>
+                                <li class="dropdown-item"><a href="/searchContact">Search Contacts</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="navLinks">Emergency Alerts</span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"><a href="/activeAlerts">Active Alerts</a></li>
+                                <li class="dropdown-item"><a href="/resolvedAlerts">Resolved Alerts</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/activityLog"><span class="navLinks">Activity Log</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto" ng-if="$root.isAuthorized">                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                           aria-haspopup="true" aria-expanded="false">
+                            <span class="navLinks">Hello, {{$root.fullName}}</span> 
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="#" ng-click="verifyLogout()">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>          
+           <a class="btn-sm btn-warning"
+                    style="width: 30px; height: 30px; margin-left: 40px; text-align: center; cursor: pointer; margin-top: 5px;"      
+                    href="~/PDFs/ENS_User_Manual.pdf"
+                    target="_blank"
+                    ng-if="$root.isAuthorized">
+                   <span class="fa fa-book" style="margin-left: -2px; margin-top: -2px;"></span>
+            </a>
+        </div>
+    </nav>
+    <!--End Navigation-->
+    <div ng-view class="body-content"></div>
+    <footer class="container">
+        This is a disclaimer. Do not use system for emergency response until fully tested!!
+        <br />
+        Copyright &copy; 2018 Adam Perry, Mitchell Williams, Rebe Legoullon, Jesse Siebeck
+    </footer>
+    @Scripts.Render("~/bundles/controllers")
+    <script src="~/ScriptsAppSpecific/appServices.js"></script>
+</body>
+</html>
