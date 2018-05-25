@@ -1,0 +1,62 @@
+﻿<div class="container" style="width:100%; min-width: 960px;">
+    <h1 style="text-align: center;">Update Alert</h1>
+        <!--New Contact Row 1-->
+     <div class="container" style="width: 100%;">
+         <div class="row" style="height: 505px; width: 100%;">
+             <div class="col-md-6">
+                 <img src="{{self.image}}"/>
+             </div>         
+             <div class="col-md-6">
+                 <!--Original Alert Information-->
+                <div class="row topBorder">
+                    <div class="form-cell col-sm-6 rightBorder" style="text-align: center;">
+                        <label>Title</label>
+                        <p>{{self.form.Title}}</p>
+                    </div>
+                    <div class="form-cell col-sm-6" style="text-align: center;">
+                        <label>Start Time</label>
+                        <p>{{self.form.Start_Time}}</p>
+                    </div>
+                </div>
+                <div class="row topBorder" style="height: 150px;">
+                    <div class="form-cell col-sm-12" style="text-align: center;">
+                        <label>Description</label>              
+                        <textarea class="form-control"
+                                  readonly
+                                  style="background-color: white; resize: none; overflow: auto;"
+                                  rows="3"
+                                  ng-model="self.form.Description"/>     
+                    </div>
+                </div>
+                <!--Update inputs-->
+                <div class="row topBorder" style="height: 185px;">
+                    <div class="form-textCell col-sm-12" style="text-align: center;">
+                        <label>Update Description</label>
+                        <textarea class="form-control"
+                            style="background-color: lightgoldenrodyellow; border-color: black; resize: none;"
+                            rows="4"
+                            ng-model="self.updateAlert.Description">        
+                        </textarea>
+                    </div>
+                </div>
+                 <div class="row topBorder">
+                     <div class="col-sm-4 form-cell" style="text-align: center; padding-top: 25px;">
+                         <button type="button" class="btn btn-success" ng-click="self.submitUpdate()"><span class="fa fa-plus"><span style="font-family: 'Lato', sans-serif;">Update Alert</span></span></button>
+                     </div>
+                     <div class="col-sm-4 form-cell" style="text-align: center; padding-top: 25px; padding-right: 20px;">
+                         <button type="button" class="btn btn-danger" ng-click="self.cancelUpdate()"><span class="fa fa-remove"><span style="font-family: 'Lato', sans-serif;">Cancel Update</span></span></button>
+                     </div>
+                     <div class="col-sm-4 form-cell" style="text-align: center; padding-top: 25px;">
+                         <button type="button" class="btn btn-primary" ng-click="self.submitResolve()"><span class="fa fa-share"><span style="font-family: 'Lato', sans-serif;">Resolve Alert</span></span></button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <!--grid-->
+         <div class="row updateGrid" ng-if="self.gridOptions.data">
+             <div class="updateGrid" style="cursor: default;" ui-grid-pagination ui-grid-selection ui-grid-exporter
+                  ui-grid-resize-columns ui-grid-move-columns ui-grid-pinning ui-grid="self.gridOptions">
+             </div>
+         </div>
+     </div>  
+</div>
