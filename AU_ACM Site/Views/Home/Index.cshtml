@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <base href="/"/>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    @Styles.Render("~/content/css")
+    @Scripts.Render("~/bundles/all")
+</head>
+<body ng-controller="initialController as self" class="body-content">
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            @*bg-dark*@
+            <div class="container">
+                <a href="http://www.augusta.edu" class="navbar-left" id="auLogo" target="_blank"><img src="Content/images/AU Logo.png"></a>
+                <a id="AU" class="navbar-brand" href="/" style="">Augusta University ACM</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <div>
+                        <ul class="navbar-nav" id="itemsLeftNav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/events">Events Calender</a>
+                            </li>                           
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">ACM Divisions</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item" href="#">Cyber Team</li>
+                                    <li class="dropdown-item" href="#">Programming Team</li>                                   
+                                    <li class="dropdown-item" href="#">Web Development Club</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Login</a>
+                            </li>                       
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--end Navigation-->
+        <div class="container" style="background-color: white; padding-top: 20px;">
+            <div ng-view id="main"></div>
+        </div>
+        <br />
+        @Scripts.Render("~/bundles/controllers")
+        <script src="~/ScriptsAppSpecific/appServices.js"></script>
+        <footer class="container" style="background-color: white;">
+            This website will be constructed by the ACM Web Development Club!
+            <br />
+            Copyright &copy; 2018 Adam Perry
+        </footer>
+    </div>
+</body>
+</html>
