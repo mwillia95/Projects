@@ -3,13 +3,6 @@ Repository of past academic and recreational projects
 
 Source Code folder contains copies of the files that were created by myself or team members (if applicable) of the different projects within this repository. Excludes Visual Studio project or NuGet package files.
 
-AU ACM Site - An incomplete version from the Augusta University Web Development Team's project for a website for the ACM Chapter. Worked on primarily by approximately 4 students.
-Implementation:
-MVC Web API
-Backend - C# and MS SQL
-Frontend - AngularJS Framework
-ORM - EntityFramework
-
 Console Chess - A simple console application that runs a game of chess. Intended for two users at the same keybaord. 
 Takes in Chess Notation as input and displays a representation of the state of the board on the console.
 Implemented in C#
@@ -38,3 +31,6 @@ ORM - EntityFramework
 
 Rimworld Mod - A mod for an Indie game called Rimworld. Implemented functionalities to the game's stockpiles that allowed them to act similar to either a cache or a buffer. The mod builds off of another mod that patches into the base game's code during runtime to modify function return values before or after the original code is run.
 Implemented in C#
+
+Barebones HTTP Server - An exploration into how an HTTP Web Server functions as well as the structure and meaning of HTTP requests and responses.
+Implemented using Python sockets. Handles GET and POST requests for HTML and PHP files.
